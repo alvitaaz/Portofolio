@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- Custom CSS -->
     <style>
-        body {
+   body {
             font-family: 'Poppins', sans-serif;
             background-color: #f8f9fa;
             overflow-x: hidden; /* untuk ngehindari scroll horizontal */
@@ -80,11 +80,10 @@
             color: #1e3c72;
         }
 
-        /* CSS untuk Foto Profil */
         .profile-pic {
             width: 220px;
             height: 220px;
-            border-radius: 50%; /* membuat gambar berbentuk bulat */
+            border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
             border: 4px solid #e2e6ea;
@@ -125,9 +124,6 @@
 
         .project-card {
             margin-bottom: 20px;
-            max-width: 300px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         footer {
@@ -138,16 +134,37 @@
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* CSS untuk MyProjects Section */
         .MyProjects-section {
             display: flex;
-            justify-content: center;
+            flex-wrap: wrap;
             gap: 20px;
-            flex-wrap: nowrap; /* mencegah wrap */
-            overflow-x: auto; /* menambahkan scroll horizontal jikalau perlu */
-            padding: 20px 0; /* menambahkan padding */
+            justify-content: center;
         }
 
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .project-card {
+            flex: 1 1 calc(33% - 20px);
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .project-card {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .project-card {
+                flex: 1 1 100%;
+            }
+        }
     </style>
 </head>
 
@@ -245,23 +262,37 @@
         <h2>My Projects</h2>
         <div class="MyProjects-section">
             <!-- Proyek 1 -->
-            <div class="project-card">
-                <div class="card p-3">
-                    <img src="thumbail.png" class="card-img-top" alt="Proyek 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Employees Management</h5>
-                        <p class="card-text">Employee Management App is a web app for managing employees with CRUD, search, and logging features</p>
-                        <a href="https://github.com/alvitaaz/EmployeesManagement" target="_blank" class="btn btn-primary">GitHub</a>
-                        <!-- tombol untuk buka modal video -->
-                        <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#videoModal1">Demo</a>
-                    </div>
-                </div>
-            </div>
+<!-- Proyek 1 -->
+<div class="project-card">
+    <div class="card p-3">
+        <img src="thumbail.png" class="card-img-top" alt="Proyek 1">
+        <div class="card-body">
+            <h5 class="card-title">Employees Management</h5>
+            <p class="card-text">Employee Management App is a web app built with ASP.NET Core for managing employee data with CRUD operations, search, and logging features.</p>
+            <a href="https://github.com/alvitaaz/EmployeesManagement" target="_blank" class="btn btn-primary">GitHub</a>
+            <a href="https://www.alvitaazalia.somee.com/" class="btn btn-secondary" target="_blank">Demo</a>
+        </div>
+    </div>
+</div>
 
-            <!-- Proyek 2 -->
+<!-- Proyek 2 -->
+<div class="project-card">
+    <div class="card p-3">
+        <img src="react.png" class="card-img-top" alt="Proyek 2">
+        <div class="card-body">
+            <h5 class="card-title">React Weather App</h5>
+            <p class="card-text">Weather is a web app built with React that displays real-time weather data (temperature, humidity, wind speed) for cities using the OpenWeatherMap API.</p>
+            <a href="https://github.com/alvitaaz/ReactWeatherApp" target="_blank" class="btn btn-primary">GitHub</a>
+            <a href="https://react-weather-app-tau-lilac.vercel.app/" class="btn btn-secondary" target="_blank">Demo</a>
+        </div>
+    </div>
+</div>
+
+
+            <!-- Proyek 3 -->
             <div class="project-card">
                 <div class="card p-3">
-                    <img src="thumbail2.png" class="card-img-top" alt="Proyek 2">
+                    <img src="thumbail2.png" class="card-img-top" alt="Proyek 3">
                     <div class="card-body">
                         <h5 class="card-title">Task Tracker</h5>
                         <p class="card-text">Task Tracker is a Laravel app for managing tasks with CRUD operations, search functionality, and MySQL storage.</p>
@@ -271,7 +302,7 @@
                 </div>
             </div>
 
-            <!-- Proyek 3 -->
+            <!-- Proyek 4 -->
             <div class="project-card">
                 <div class="card p-3">
                     <img src="thumbail3.png" class="card-img-top" alt="Data Analysis">
@@ -284,10 +315,10 @@
                 </div>
             </div>
 
-            <!-- Proyek 4 -->
+            <!-- Proyek 5 -->
             <div class="project-card">
                 <div class="card p-3">
-                    <img src="thumbail4.png" class="card-img-top" alt="Proyek 4">
+                    <img src="thumbail4.png" class="card-img-top" alt="Proyek 5">
                     <div class="card-body">
                         <h5 class="card-title">Kedaiku-BookStore</h5>
                         <p class="card-text">Online Bookstore is a web app for users to register, browse, and purchase books, with login for users and admin.</p>
@@ -301,24 +332,7 @@
     </div>
 </section>
 
-<!-- modal Video Proyek 1 -->
-<div class="modal fade" id="videoModal1" tabindex="-1" aria-labelledby="videoModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="videoModalLabel1">Demo Video - Employees Management</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/SfrDztZjZ-s" title="YouTube video" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- modal Video Proyek 2 -->
+<!-- modal Video Proyek 3 -->
 <div class="modal fade" id="videoModal2" tabindex="-1" aria-labelledby="videoModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -335,7 +349,7 @@
     </div>
 </div>
 
-<!-- modal Video Proyek 3 -->
+<!-- modal Video Proyek 4 -->
 <div class="modal fade" id="videoModal3" tabindex="-1" aria-labelledby="videoModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -352,7 +366,7 @@
     </div>
 </div>
 
-<!-- modal Video Proyek 4 -->
+<!-- modal Video Proyek 5 -->
 <div class="modal fade" id="videoModal4" tabindex="-1" aria-labelledby="videoModalLabel4" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
